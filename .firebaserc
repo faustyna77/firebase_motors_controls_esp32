@@ -1,0 +1,5 @@
+{
+  "projects": {
+    "default": "faustyna-esp32-remote-motors"
+  }
+}
