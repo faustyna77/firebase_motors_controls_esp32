@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- Complete Project Details at: https://RandomNerdTutorials.com/ -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ESP motors</title>
+
+    <!-- update the version number as needed -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+
+    <!-- include only the Firebase features as you need -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+
+    <script>
+      // REPLACE WITH YOUR web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAU-oWFvMinpfwL5JoC1NHzMaN7oEjPHI4",
+        authDomain: "faustyna-esp32-remote-motors.firebaseapp.com",
+        databaseURL: "https://faustyna-esp32-remote-motors-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "faustyna-esp32-remote-motors",
+        storageBucket: "faustyna-esp32-remote-motors.appspot.com",
+        messagingSenderId: "440943219758",
+        appId: "1:440943219758:web:46e9208d679c56a5f5fbbf"
+      };
+
+      // Initialize firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Make auth and database references
+      const auth = firebase.auth();
+      const db = firebase.database();
+
+    </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <!--TOP BAR-->
+  <div class="topnav">
+    <h1>PŁYTKA ESP zdalny robot</h1>
+  </div>
+
+  <!--AUTHENTICATION BAR (USER DETAILS/LOGOUT BUTTON)-->
+  <div id="authentication-bar" style="display: none;">
+    <p><span id="authentication-status">zalogowano </span>
+       <span id="user-details">USEREMAIL</span>
+       <a href="/" id="logout-link">(logout)</a>
+    </p>
+  </div>
+
+  <!--LOGIN FORM-->
+  <form id="login-form" style="display: none;">
+    <div class="form-elements-container">
+      <label for="input-email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Username" id="input-email" required>
+
+      <label for="input-password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" id="input-password" required>
+
+      <button type="submit" id="login-button">Login</button>
+      <p id="error-message" style="color:red;"></p>
+    </div>
+  </form>
+
+  <!--CONTENT (SENSOR READINGS)-->
+  <div class="content-sign-in" id="content-sign-in" style="display: none;">
+    <div class="card-grid">
+      <!--CARD FOR GPIO 12-->
+    
+      <div class="lewo">
+        <img  src="data/lewo.PNG"   wide="200" height="200"/>
+        
+        <p>
+          <button class="button-on" id="btn1On">Jedż prosto </button>
+          <button class="button-off" id="btn1Off">Zawróć</button>
+          
+        </p>
+      </div>
+        
+      
+
+      <!--CARD FOR GPIO 13-->
+      <div class="prawo">
+        <img  src="data/prawo.PNG"   wide="200" height="200"/>
+        <p>
+          <button class="button-on" id="btn2On">W prawo </button>
+          <button class="button-off" id="btn2Off">W lewo</button>
+          
+        </p>
+        </div>
+      
+
+      <!--CARD FOR GPIO 14-->
+      <div class="gora">
+        <img  src="data/gora.PNG"   wide="200" height="200"/>
+        <p>
+          <button class="button-on" id="btn3On">Skręt w prawo</button>
+          <button class="button-off" id="btn3Off">Skret w lewo</button>
+        </p>
+        
+        </div>
+        <div class="dol">
+          <img  src="data/dol.PNG"   wide="200" height="200"/>
+          <p>
+            <button class="button-on" id="btn4Off">Stop</button>
+            
+          </p>
+         
+          </div>
+     
+  </div>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/index.js"></script>
+  </body>
+</html>
